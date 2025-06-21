@@ -1,0 +1,124 @@
+# robots.txt for Holiday Activity Website
+# Last updated: 2025-06-21
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Block access to admin areas and sensitive files
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /.well-known/
+Disallow: /dashboard/
+Disallow: /user/
+Disallow: /login/
+Disallow: /register/
+
+# Block access to file types that shouldn't be indexed
+Disallow: /*.json$
+Disallow: /*.xml$ 
+Disallow: /*.txt$
+Disallow: /*.log$
+Disallow: /*.zip$
+Disallow: /*.pdf$
+
+# Block duplicate content and search result pages
+Disallow: /search?
+Disallow: /*?search=
+Disallow: /*?q=
+Disallow: /*?query=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*?lang=
+
+# Block development and staging paths
+Disallow: /dev/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /beta/
+Disallow: /data/
+
+# Allow specific important files
+Allow: /sitemap.xml
+Allow: /sitemap*.xml
+Allow: /robots.txt
+Allow: /.well-known/security.txt
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://holidayactivityhub.com/sitemap.xml
+
+# Crawl delay for all bots (optional - only add if you have server performance concerns)
+# Crawl-delay: 1
+
+# Specific rules for major search engines
+
+# Google specific rules
+User-agent: Googlebot
+Allow: /
+# Allow Google to crawl CSS and JS for better rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Bing specific rules  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Yandex specific rules (important for Russian market)
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Baidu specific rules (important for Chinese market)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Block problematic or unwanted bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Block social media crawlers from sensitive areas (but allow general crawling)
+User-agent: facebookexternalhit
+Disallow: /admin/
+Disallow: /data/
+Disallow: /api/
+Disallow: /user/
+
+User-agent: Twitterbot
+Disallow: /admin/
+Disallow: /data/
+Disallow: /api/
+Disallow: /user/
+
+# Block AI training bots (optional - uncomment if you want to opt out)
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# User-agent: anthropic-ai
+# Disallow: /
+
+# User-agent: Claude-Web
+# Disallow: /
