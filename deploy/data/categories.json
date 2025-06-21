@@ -1,44 +1,252 @@
-         {
-            "code":"pl",
-            "name":"Polish",
-            "native_name":"Polski"
-         },
-         {
-            "code":"nl",
-            "name":"Dutch",
-            "native_name":"Nederlands"
-         },
-         {
-            "code":"sv",
-            "name":"Swedish",
-            "native_name":"Svenska"
-         },
-         {
-            "code":"da",
-            "name":"Danish",
-            "native_name":"Dansk"
-         },
-         {
-            "code":"no",
-            "name":"Norwegian",
-            "native_name":"Norsk"
-         },
-         {
-            "code":"fi",
-            "name":"Finnish",
-            "native_name":"Suomi"
-         },
-         {
-            "code":"el",
-            "name":"Greek",
-            "native_name":"Ελληνικά"
-         }
-      ],
-      "notes":{
-         "slug_format":"kebab-case for SEO-friendly URLs",
-         "icon_system":"FontAwesome or Lucide icons recommended",
-         "translation_quality":"Professional translations suitable for tourism industry",
-         "usage":"Suitable for multi-language holiday activity website categorization"
-      }
-   }
+{
+“categories”: [
+{
+“id”: 1,
+“slug”: “nature-outdoor-adventures”,
+“icon”: “mountain”,
+“translations”: {
+“en”: “Nature & Outdoor Adventures”,
+“es”: “Naturaleza y Aventuras al Aire Libre”,
+“fr”: “Nature et Aventures en Plein Air”,
+“de”: “Natur und Outdoor-Abenteuer”,
+“it”: “Natura e Avventure all’Aperto”,
+“pt”: “Natureza e Aventuras ao Ar Livre”,
+“ru”: “Природа и Приключения на Свежем Воздухе”,
+“ja”: “自然とアウトドアアドベンチャー”,
+“ko”: “자연 및 야외 모험”,
+“zh”: “自然与户外探险”,
+“ar”: “الطبيعة والمغامرات الخارجية”,
+“hi”: “प्रकृति और आउटडोर एडवेंचर”,
+“tr”: “Doğa ve Açık Hava Maceraları”,
+“pl”: “Przyroda i Przygody na Świeżym Powietrzu”,
+“nl”: “Natuur en Buitenaventures”,
+“sv”: “Natur och Utomhusäventyr”,
+“da”: “Natur og Udendørs Eventyr”,
+“no”: “Natur og Utendørseventyr”,
+“fi”: “Luonto ja Ulkoilmaseikkailut”,
+“el”: “Φύση και Υπαίθριες Περιπέτειες”
+}
+},
+{
+“id”: 2,
+“slug”: “cultural-experiences-local-life”,
+“icon”: “users”,
+“translations”: {
+“en”: “Cultural Experiences & Local Life”,
+“es”: “Experiencias Culturales y Vida Local”,
+“fr”: “Expériences Culturelles et Vie Locale”,
+“de”: “Kulturelle Erlebnisse und Lokales Leben”,
+“it”: “Esperienze Culturali e Vita Locale”,
+“pt”: “Experiências Culturais e Vida Local”,
+“ru”: “Культурные Впечатления и Местная Жизнь”,
+“ja”: “文化体験と地元の生活”,
+“ko”: “문화 체험 및 현지 생활”,
+“zh”: “文化体验与当地生活”,
+“ar”: “التجارب الثقافية والحياة المحلية”,
+“hi”: “सांस्कृतिक अनुभव और स्थानीय जीवन”,
+“tr”: “Kültürel Deneyimler ve Yerel Yaşam”,
+“pl”: “Doświadczenia Kulturalne i Lokalne Życie”,
+“nl”: “Culturele Ervaringen en Lokaal Leven”,
+“sv”: “Kulturella Upplevelser och Lokalt Liv”,
+“da”: “Kulturelle Oplevelser og Lokalt Liv”,
+“no”: “Kulturelle Opplevelser og Lokalt Liv”,
+“fi”: “Kulttuurikokemukset ja Paikallinen Elämä”,
+“el”: “Πολιτιστικές Εμπειρίες και Τοπική Ζωή”
+}
+},
+{
+“id”: 3,
+“slug”: “food-drink-culinary”,
+“icon”: “utensils”,
+“translations”: {
+“en”: “Food, Drink & Culinary”,
+“es”: “Comida, Bebida y Culinaria”,
+“fr”: “Alimentation, Boissons et Culinaire”,
+“de”: “Essen, Trinken und Kulinarisches”,
+“it”: “Cibo, Bevande e Culinaria”,
+“pt”: “Comida, Bebida e Culinária”,
+“ru”: “Еда, Напитки и Кулинария”,
+“ja”: “食べ物、飲み物、料理”,
+“ko”: “음식, 음료 및 요리”,
+“zh”: “美食、饮品与烹饪”,
+“ar”: “الطعام والشراب والطهي”,
+“hi”: “भोजन, पेय और पाक कला”,
+“tr”: “Yiyecek, İçecek ve Mutfak”,
+“pl”: “Jedzenie, Napoje i Kulinaria”,
+“nl”: “Eten, Drinken en Culinair”,
+“sv”: “Mat, Dryck och Kulinariskt”,
+“da”: “Mad, Drikke og Kulinarisk”,
+“no”: “Mat, Drikke og Kulinarisk”,
+“fi”: “Ruoka, Juoma ja Kulinaarinen”,
+“el”: “Φαγητό, Ποτά και Γαστρονομία”
+}
+},
+{
+“id”: 4,
+“slug”: “arts-entertainment-nightlife”,
+“icon”: “music”,
+“translations”: {
+“en”: “Arts, Entertainment & Nightlife”,
+“es”: “Arte, Entretenimiento y Vida Nocturna”,
+“fr”: “Arts, Divertissement et Vie Nocturne”,
+“de”: “Kunst, Unterhaltung und Nachtleben”,
+“it”: “Arte, Intrattenimento e Vita Notturna”,
+“pt”: “Arte, Entretenimento e Vida Noturna”,
+“ru”: “Искусство, Развлечения и Ночная Жизнь”,
+“ja”: “芸術、エンターテインメント、ナイトライフ”,
+“ko”: “예술, 엔터테인먼트 및 나이트라이프”,
+“zh”: “艺术、娱乐与夜生活”,
+“ar”: “الفنون والترفيه والحياة الليلية”,
+“hi”: “कला, मनोरंजन और नाइटलाइफ”,
+“tr”: “Sanat, Eğlence ve Gece Hayatı”,
+“pl”: “Sztuka, Rozrywka i Życie Nocne”,
+“nl”: “Kunst, Entertainment en Nachtleven”,
+“sv”: “Konst, Underhållning och Nattliv”,
+“da”: “Kunst, Underholdning og Natteliv”,
+“no”: “Kunst, Underholdning og Nattliv”,
+“fi”: “Taide, Viihde ja Yöelämä”,
+“el”: “Τέχνες, Ψυχαγωγία και Νυχτερινή Ζωή”
+}
+},
+{
+“id”: 5,
+“slug”: “wellness-relaxation”,
+“icon”: “heart”,
+“translations”: {
+“en”: “Wellness & Relaxation”,
+“es”: “Bienestar y Relajación”,
+“fr”: “Bien-être et Détente”,
+“de”: “Wellness und Entspannung”,
+“it”: “Benessere e Relax”,
+“pt”: “Bem-estar e Relaxamento”,
+“ru”: “Велнес и Релаксация”,
+“ja”: “ウェルネスとリラクゼーション”,
+“ko”: “웰니스 및 휴식”,
+“zh”: “健康与放松”,
+“ar”: “العافية والاسترخاء”,
+“hi”: “कल्याण और विश्राम”,
+“tr”: “Sağlık ve Rahatlama”,
+“pl”: “Wellness i Relaks”,
+“nl”: “Wellness en Ontspanning”,
+“sv”: “Hälsa och Avkoppling”,
+“da”: “Wellness og Afslapning”,
+“no”: “Velvære og Avslapning”,
+“fi”: “Hyvinvointi ja Rentoutuminen”,
+“el”: “Ευεξία και Χαλάρωση”
+}
+},
+{
+“id”: 6,
+“slug”: “transportation-mobility”,
+“icon”: “car”,
+“translations”: {
+“en”: “Transportation & Mobility”,
+“es”: “Transporte y Movilidad”,
+“fr”: “Transport et Mobilité”,
+“de”: “Transport und Mobilität”,
+“it”: “Trasporti e Mobilità”,
+“pt”: “Transporte e Mobilidade”,
+“ru”: “Транспорт и Мобильность”,
+“ja”: “交通とモビリティ”,
+“ko”: “교통 및 이동성”,
+“zh”: “交通与出行”,
+“ar”: “النقل والتنقل”,
+“hi”: “परिवहन और गतिशीलता”,
+“tr”: “Ulaşım ve Mobilite”,
+“pl”: “Transport i Mobilność”,
+“nl”: “Vervoer en Mobiliteit”,
+“sv”: “Transport och Mobilitet”,
+“da”: “Transport og Mobilitet”,
+“no”: “Transport og Mobilitet”,
+“fi”: “Liikenne ja Liikkuvuus”,
+“el”: “Μεταφορές και Κινητικότητα”
+}
+},
+{
+“id”: 7,
+“slug”: “tours-sightseeing”,
+“icon”: “camera”,
+“translations”: {
+“en”: “Tours & Sightseeing”,
+“es”: “Tours y Turismo”,
+“fr”: “Circuits et Visites”,
+“de”: “Touren und Besichtigungen”,
+“it”: “Tour e Visite Turistiche”,
+“pt”: “Tours e Passeios Turísticos”,
+“ru”: “Туры и Экскурсии”,
+“ja”: “ツアーと観光”,
+“ko”: “투어 및 관광”,
+“zh”: “旅游观光”,
+“ar”: “الجولات والسياحة”,
+“hi”: “पर्यटन और दर्शनीय स्थल”,
+“tr”: “Turlar ve Gezi”,
+“pl”: “Wycieczki i Zwiedzanie”,
+“nl”: “Tours en Sightseeing”,
+“sv”: “Turer och Sightseeing”,
+“da”: “Ture og Sightseeing”,
+“no”: “Turer og Sightseeing”,
+“fi”: “Kiertoajelut ja Nähtävyydet”,
+“el”: “Εκδρομές και Αξιοθέατα”
+}
+},
+{
+“id”: 8,
+“slug”: “family-group-activities”,
+“icon”: “users-group”,
+“translations”: {
+“en”: “Family & Group Activities”,
+“es”: “Actividades Familiares y de Grupo”,
+“fr”: “Activités Familiales et de Groupe”,
+“de”: “Familien- und Gruppenaktivitäten”,
+“it”: “Attività per Famiglie e Gruppi”,
+“pt”: “Atividades para Família e Grupos”,
+“ru”: “Семейные и Групповые Активности”,
+“ja”: “家族・グループ活動”,
+“ko”: “가족 및 그룹 활동”,
+“zh”: “家庭与团体活动”,
+“ar”: “الأنشطة العائلية والجماعية”,
+“hi”: “पारिवारिक और समूह गतिविधियां”,
+“tr”: “Aile ve Grup Etkinlikleri”,
+“pl”: “Aktywności Rodzinne i Grupowe”,
+“nl”: “Familie en Groepsactiviteiten”,
+“sv”: “Familje- och Gruppaktiviteter”,
+“da”: “Familie- og Gruppeaktiviteter”,
+“no”: “Familie- og Gruppeaktiviteter”,
+“fi”: “Perhe- ja Ryhmätoiminta”,
+“el”: “Οικογενειακές και Ομαδικές Δραστηριότητες”
+}
+}
+],
+“metadata”: {
+“version”: “1.0”,
+“last_updated”: “2025-06-21”,
+“supported_languages”: [
+{“code”: “en”, “name”: “English”, “native_name”: “English”},
+{“code”: “es”, “name”: “Spanish”, “native_name”: “Español”},
+{“code”: “fr”, “name”: “French”, “native_name”: “Français”},
+{“code”: “de”, “name”: “German”, “native_name”: “Deutsch”},
+{“code”: “it”, “name”: “Italian”, “native_name”: “Italiano”},
+{“code”: “pt”, “name”: “Portuguese”, “native_name”: “Português”},
+{“code”: “ru”, “name”: “Russian”, “native_name”: “Русский”},
+{“code”: “ja”, “name”: “Japanese”, “native_name”: “日本語”},
+{“code”: “ko”, “name”: “Korean”, “native_name”: “한국어”},
+{“code”: “zh”, “name”: “Chinese”, “native_name”: “中文”},
+{“code”: “ar”, “name”: “Arabic”, “native_name”: “العربية”},
+{“code”: “hi”, “name”: “Hindi”, “native_name”: “हिन्दी”},
+{“code”: “tr”, “name”: “Turkish”, “native_name”: “Türkçe”},
+{“code”: “pl”, “name”: “Polish”, “native_name”: “Polski”},
+{“code”: “nl”, “name”: “Dutch”, “native_name”: “Nederlands”},
+{“code”: “sv”, “name”: “Swedish”, “native_name”: “Svenska”},
+{“code”: “da”, “name”: “Danish”, “native_name”: “Dansk”},
+{“code”: “no”, “name”: “Norwegian”, “native_name”: “Norsk”},
+{“code”: “fi”, “name”: “Finnish”, “native_name”: “Suomi”},
+{“code”: “el”, “name”: “Greek”, “native_name”: “Ελληνικά”}
+],
+“notes”: {
+“slug_format”: “kebab-case for SEO-friendly URLs”,
+“icon_system”: “FontAwesome or Lucide icons recommended”,
+“translation_quality”: “Professional translations suitable for tourism industry”,
+“usage”: “Suitable for multi-language holiday activity website categorization”
+}
+}
 }
