@@ -21,6 +21,27 @@
   <meta name="twitter:image" content="https://holidayactivityhub.com/og-image.jpg">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.js"></script>
+    <style>
+        .category-card {
+            transition: all 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+        }
+        .icon-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .icon-container.nature { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .icon-container.cultural { background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%); }
+        .icon-container.food { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .icon-container.arts { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .icon-container.wellness { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .icon-container.transport { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .icon-container.tours { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .icon-container.family { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <header class="p-6 bg-blue-600 text-white">
@@ -35,7 +56,293 @@
         Discover fun, safe, and engaging experiences for your next holiday. Browse activities, read reviews, and book your spot with ease.
       </p>
     </section>
+    <section>
+      <!-- Categories Grid -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Browse by Category</h2>
+            <p class="text-gray-600">Find your perfect Cretan adventure</p>
+        </div>
+        
+        <div id="categoriesGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Categories will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="max-w-6xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Skeleton loading cards -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg animate-pulse">
+                <div class="w-16 h-16 bg-gray-300 rounded-2xl mb-4 mx-auto"></div>
+                <div class="h-4 bg-gray-300 rounded mb-2"></div>
+                <div class="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-lg animate-pulse">
+                <div class="w-16 h-16 bg-gray-300 rounded-2xl mb-4 mx-auto"></div>
+                <div class="h-4 bg-gray-300 rounded mb-2"></div>
+                <div class="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-lg animate-pulse">
+                <div class="w-16 h-16 bg-gray-300 rounded-2xl mb-4 mx-auto"></div>
+                <div class="h-4 bg-gray-300 rounded mb-2"></div>
+                <div class="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-lg animate-pulse">
+                <div class="w-16 h-16 bg-gray-300 rounded-2xl mb-4 mx-auto"></div>
+                <div class="h-4 bg-gray-300 rounded mb-2"></div>
+                <div class="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
+            </div>
+        </div>
+    </div>
+    </section>
   </main>
   <footer class="p-4 bg-gray-200 text-center text-sm">
     &copy; 2025 Holiday Activity Hub. All rights reserved.
   </footer>
+  
+ <script>
+    // Global variable to store categories data
+    let categoriesData = null;
+
+    // Icon mapping for Lucide icons
+    const iconMap = {
+        'mountain': 'Mountain',
+        'users': 'Users',
+        'utensils': 'Utensils',
+        'music': 'Music',
+        'heart': 'Heart',
+        'car': 'Car',
+        'camera': 'Camera',
+        'users-group': 'Users'
+    };
+
+    // Color themes for each category
+    const colorThemes = {
+        'nature-outdoor-adventures': 'nature',
+        'cultural-experiences-local-life': 'cultural',
+        'food-drink-culinary': 'food',
+        'arts-entertainment-nightlife': 'arts',
+        'wellness-relaxation': 'wellness',
+        'transportation-mobility': 'transport',
+        'tours-sightseeing': 'tours',
+        'family-group-activities': 'family'
+    };
+    
+    // Load categories data from JSON file
+    async function loadCategoriesData() {
+        try {
+            const response = await fetch('/data/categories.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error loading categories data:', error);
+            // Return fallback data or show error message
+            showErrorMessage('Failed to load categories. Please try again later.');
+            return null;
+        }
+    }
+
+    // Get current language from URL, localStorage, or default
+    function getCurrentLanguage() {
+        // Method 1: Get from URL path (e.g., /en/categories/)
+        const urlPath = window.location.pathname;
+        const urlLangMatch = urlPath.match(/^\/([a-z]{2})(?:\/|$)/);
+        if (urlLangMatch) {
+            return urlLangMatch[1];
+        }
+        
+        // Method 2: Get from localStorage
+        const storedLang = localStorage.getItem('preferred-language');
+        if (storedLang) {
+            return storedLang;
+        }
+        
+        // Method 3: Get from browser language
+        const browserLang = navigator.language.slice(0, 2);
+        const supportedLanguages = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'ja', 'ko', 'zh', 'ar', 'hi', 'tr', 'pl', 'nl', 'sv', 'da', 'no', 'fi', 'el'];
+        if (supportedLanguages.includes(browserLang)) {
+            return browserLang;
+        }
+        
+        // Default fallback
+        return 'en';
+    }
+
+    // Show error message to user
+    function showErrorMessage(message) {
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const loadingState = document.getElementById('loadingState');
+        
+        if (loadingState) loadingState.style.display = 'none';
+        
+        if (categoriesGrid) {
+            categoriesGrid.innerHTML = `
+                <div class="col-span-full text-center py-12">
+                    <div class="text-red-500 mb-4">
+                        <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-2"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">${message}</h3>
+                    <button onclick="initializeCategories()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Try Again
+                    </button>
+                </div>
+            `;
+            
+            // Initialize Lucide icons for error state
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+    }
+
+    // Load categories and render grid
+    async function loadCategories() {
+        if (!categoriesData) {
+            console.error('Categories data not loaded');
+            return;
+        }
+
+        const currentLang = getCurrentLanguage();
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const loadingState = document.getElementById('loadingState');
+        
+        // Hide loading state
+        if (loadingState) {
+            loadingState.style.display = 'none';
+        }
+        
+        // Clear grid
+        if (categoriesGrid) {
+            categoriesGrid.innerHTML = '';
+        } else {
+            console.error('Categories grid element not found');
+            return;
+        }
+        
+        // Check if categories exist
+        if (!categoriesData.categories || !Array.isArray(categoriesData.categories)) {
+            showErrorMessage('No categories found');
+            return;
+        }
+        
+        // Render each category
+        categoriesData.categories.forEach(category => {
+            try {
+                const categoryName = category.translations[currentLang] || category.translations.en || 'Unknown Category';
+                const iconName = iconMap[category.icon] || 'Circle';
+                const colorTheme = colorThemes[category.slug] || '';
+                
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card bg-white rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl cursor-pointer transform transition-all duration-300';
+                categoryCard.setAttribute('role', 'button');
+                categoryCard.setAttribute('tabindex', '0');
+                categoryCard.setAttribute('aria-label', `Browse ${categoryName}`);
+                
+                // Add click and keyboard event listeners
+                categoryCard.addEventListener('click', () => navigateToCategory(category.slug));
+                categoryCard.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        navigateToCategory(category.slug);
+                    }
+                });
+                
+                categoryCard.innerHTML = `
+                    <div class="text-center">
+                        <div class="icon-container ${colorTheme} w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i data-lucide="${category.icon}" class="w-8 h-8 md:w-10 md:h-10 text-white"></i>
+                        </div>
+                        <h3 class="font-semibold text-sm md:text-base text-gray-800 mb-1 leading-tight">${categoryName}</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Explore experiences</p>
+                    </div>
+                `;
+                
+                categoriesGrid.appendChild(categoryCard);
+            } catch (error) {
+                console.error('Error rendering category:', category, error);
+            }
+        });
+        
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
+
+    // Navigate to category page
+    function navigateToCategory(slug) {
+        try {
+            const currentLang = getCurrentLanguage();
+            const targetUrl = `/${currentLang}/categories/${slug}`;
+            
+            // Use pushState for SPA-like navigation if needed, otherwise regular navigation
+            window.location.href = targetUrl;
+        } catch (error) {
+            console.error('Navigation error:', error);
+        }
+    }
+
+    // Initialize the entire categories system
+    async function initializeCategories() {
+        try {
+            // Show loading state
+            const loadingState = document.getElementById('loadingState');
+            if (loadingState) {
+                loadingState.style.display = 'block';
+            }
+            
+            // Load categories data
+            categoriesData = await loadCategoriesData();
+            
+            if (categoriesData) {
+                // Load and render categories
+                await loadCategories();
+            }
+        } catch (error) {
+            console.error('Error initializing categories:', error);
+            showErrorMessage('Failed to load categories. Please try again later.');
+        }
+    }
+
+    // Language switcher function
+    async function switchLanguage(langCode) {
+        try {
+            // Store language preference
+            localStorage.setItem('preferred-language', langCode);
+            
+            // Update URL if using path-based language routing
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^\/[a-z]{2}/, `/${langCode}`);
+            
+            // Navigate to new language version
+            window.location.href = newPath;
+        } catch (error) {
+            console.error('Error switching language:', error);
+        }
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeCategories();
+    });
+
+    // Add touch feedback for mobile (passive listener for better performance)
+    document.addEventListener('touchstart', function() {}, { passive: true });
+
+    // Handle window resize for responsive adjustments
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            // Reinitialize icons after resize if needed
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }, 250);
+    });
+</script>
+  
+</html>
